@@ -78,6 +78,7 @@ const App = () => {
             {stateArray.map(item => (
                 <span style={{ padding: "10px" }}>{item}</span>
             ))}
+            <button style={{display: "block", margin: "10px"}} onClick={() => setArray(makeSquare(stateArray))}>Process Array</button>
             <footer style={{ height: "500px" }}></footer>
         </div>
     );
