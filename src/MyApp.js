@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import AppTitle from "./AppTitle";
 import Students from "./Students";
 
@@ -20,30 +20,46 @@ const makeSquare = array => array.map(v => Math.pow(v, 2));
 
 const squares = makeSquare(otherArray);
 
-const App = () => (
-    <div>
-        <h1>Minimal React by Jaroslav Siroic</h1>
-        <AppTitle />
-        <p>generateArrayExample</p>
-        {generateArrayExample.map(item => (
-            <span style={{ padding: "10px" }}>{item}</span>
-        ))}
-        <p>generateRandomArrayExample</p>
-        {generateRandomArrayExample.map(item => (
-            <span style={{ padding: "10px" }}>{item}</span>
-        ))}
-        <p>Array</p>
-        {array.map(item => {
-            if (item >= 15) {
-                return <span style={{ padding: "10px" }}>{item}</span>;
-            }
-        })}
-        <p>makeSquare</p>
-        {squares.map(item => (
-            <span style={{ padding: "10px" }}>{item}</span>
-        ))}
-        <Students />
-    </div>
-);
+const App = () => {
+
+    const [aValue, setA] = useState(0);
+    const [bValue, setB] = useState(0);
+
+    console.log("Value change -> a:"+ aValue + " b:"+ bValue);
+    return (
+        <div>
+            <h1>Minimal React by Jaroslav Siroic</h1>
+            <h2>Lab 1</h2>
+            <AppTitle />
+            <p>generateArrayExample</p>
+            {generateArrayExample.map(item => (
+                <span style={{ padding: "10px" }}>{item}</span>
+            ))}
+            <p>generateRandomArrayExample</p>
+            {generateRandomArrayExample.map(item => (
+                <span style={{ padding: "10px" }}>{item}</span>
+            ))}
+            <p>Array</p>
+            {array.map(item => {
+                if (item >= 15) {
+                    return <span style={{ padding: "10px" }}>{item}</span>;
+                }
+            })}
+            <p>makeSquare</p>
+            {squares.map(item => (
+                <span style={{ padding: "10px" }}>{item}</span>
+            ))}
+            <Students />
+            <hr />
+            <h2>Lab 2</h2>
+            <label>A:</label>
+            <input type="number" onChange={(event) => setA(event.target.value)} />
+            <label>B:</label>
+            <input type="number" onChange={(event) => setB(event.target.value)} />
+
+            <footer style={{ height: "500px" }}></footer>
+        </div>
+    );
+};
 
 export default App;
